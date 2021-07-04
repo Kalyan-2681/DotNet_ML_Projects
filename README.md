@@ -1,1 +1,1 @@
-Useful Javascript projects
+End to end Machine Learning Project - 1
