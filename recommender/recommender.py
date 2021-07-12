@@ -1,13 +1,10 @@
 from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS, cross_origin
 import requests
-from bs4 import BeautifulSoup as bs
 from urllib.request import urlopen as uReq
 import dboperations
 import pandas as pd
 import logging
-
-
 
 app = Flask(__name__)
 
@@ -23,8 +20,8 @@ def homePage():
 def index():
     if request.method == 'POST':
         try:
-            
-            return render_template('results.html', reviews=reviews[0:(len(reviews) - 1)])
+            reviews = ""
+            return render_template('results.html', reviews])
 
         except Exception as e:
             print('The Exception message is : ', e)
