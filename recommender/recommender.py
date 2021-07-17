@@ -12,7 +12,7 @@ class GetRecommendation(Resource):
     
     def post(self):
         return {"data": "Hello World from post"}
-
+# route
 api.add_resource(GetRecommendation, "/helloworld")
 
 if __name__ == "__main__":
