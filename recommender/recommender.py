@@ -6,14 +6,15 @@ import logging
 app = Flask(__name__)
 api = Api(app)
 
+recommendations = {}
 class GetRecommendation(Resource):
-    def get(self):
-        return {"data": "Hello World"}
+    def get(self,cust_id):
+        return recommendations[cust_id]
     
     def post(self):
-        return {"data": "Hello World from post"}
+        return {"data": "grocery recommendations"}
 # route
-api.add_resource(GetRecommendation, "/helloworld")
+api.add_resource(GetRecommendation, "/recommend/<")
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
