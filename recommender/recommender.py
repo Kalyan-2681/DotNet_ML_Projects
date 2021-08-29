@@ -26,10 +26,6 @@ class GetRecommendation(Resource):
             logging.info("default site information")    
             return {"Site Name":"Catering"}
     
-    def post(self):
-        return {"data": "recommendations"}
-    
-    
 # route
 api.add_resource(GetRecommendation, "/recommend/<int:cust_id>")
 

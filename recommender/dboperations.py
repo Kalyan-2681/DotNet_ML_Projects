@@ -23,7 +23,7 @@ def readfromdb(searchString):
     dbclient = MongoClient(CLUSTER)
     dataBase = dbclient[DB_NAME]
     collection = dataBase[COLLECTION_NAME]
-    for record in collection.find_all({},{'site_id': searchString}):
+    for record in collection.find_all({},{'site_id': '001'}):
         result = []
         result = record.__dict__
         logging.info("records :  " + record.__dict__) 
