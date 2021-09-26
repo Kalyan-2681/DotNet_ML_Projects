@@ -15,9 +15,9 @@ def getcustomer(cust_id):
 
 def readfromdb(searchString): 
     logging.info("inside readfromdb")   
-    USR = "webuser"   
-    PWD = "carnivaL1"
-    DB_NAME = "ElectronicEcommerce"  # Specifiy a Database Name
+    USR = "x"   
+    PWD = "y"
+    DB_NAME = "ee"  # Specifiy a Database Name
     CLUSTER = f"mongodb+srv://{USR}:{PWD}@cluster0.hhuga.mongodb.net/{DB_NAME}?retryWrites=true&w=majority"
     COLLECTION_NAME = "Site"
     dbclient = MongoClient(CLUSTER)
@@ -32,9 +32,9 @@ def readfromdb(searchString):
     dbclient.close()
 
 def writetodb(searchString,searchdata):    
-    USR = "webuser"   
-    PWD = "carnivaL1"
-    DB_NAME = "ElectronicEcommerce"  # Specifiy a Database Name
+    USR = "x"   
+    PWD = "y"
+    DB_NAME = "ee"  # Specifiy a Database Name
     CLUSTER = f"mongodb+srv://{USR}:{PWD}@cluster0.hhuga.mongodb.net/{DB_NAME}?retryWrites=true&w=majority"
     COLLECTION_NAME = "Site"
     dbclient = MongoClient(CLUSTER)
