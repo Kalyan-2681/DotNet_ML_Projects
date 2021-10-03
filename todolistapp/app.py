@@ -1,6 +1,18 @@
 from flask import Flask, render_template, url_for
+from  flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URL'] = 'sqlite:///test.db'
+db = SQLAlchemy(app)
+
+class Todo(db.models.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    content = db.Column(db.String(200), nullable=False)
+    completed = db.Column(db.Integer, default=0)
+    date_created = db.Column(db.DateTime, default=datetime.utcnow)
+
+    def __rep__(self):
+        return '<Task %r>' % self.id
 
 
 @app.route('/')
