@@ -1,11 +1,20 @@
-{% extends "base.html" %}
-
-{% block head %}
-
-
+{% extends "base.html" %} {% block head %} {% endblock %} {% block body %}
+<div class="content">
+  <table>
+    <tr>
+      <th>Tasks</th>
+      <th>Added</th>
+      <th>Actions</th>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td>
+            <a href="">Delete</a>
+            <br>
+            <a href="">Update</a>
+        </td>
+    </tr>
+  </table>
+</div>
 {% endblock %}
-
-
-{% block body %}
-<h1>Template</h1>
-{% endblock %} 
