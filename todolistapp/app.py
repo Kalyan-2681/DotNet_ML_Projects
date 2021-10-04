@@ -38,7 +38,7 @@ def delete(id):
     task_to_delete = Todo.query.get_or_404(id)
 
     try:
-        db.sessiom.delete(task_to_delete)
+        db.session.delete(task_to_delete)
         db.session.commit()
         return redirect('/')
     except:
@@ -53,8 +53,8 @@ def update(id):
         try:
             db.session.commit()
             return redirect('/')
-        except Exception as e:
-            return e.message
+        except:
+            return 'There was a problem updating the task'
     else:
         return render_template('update.html', task = task_to_update)
 

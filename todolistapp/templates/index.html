@@ -5,6 +5,9 @@
 {% block body %}
 <div class="content">
     <h1 style="text-align: center">Task Master</h1>
+    {% if tasks|length < 1 %}
+    <h4 style="text-align: center">No Tasks Available</h4>
+    {% else %}    
   <table>
     <tr>
       <th>Tasks</th>
@@ -23,6 +26,7 @@
         </tr>
     {% endfor %}
   </table>
+  {% endif %}
  <form action="/" method="POST">
     <input type="text" name="content" id="content">
     <input type="submit" name="Add Task" values="Add Task">
