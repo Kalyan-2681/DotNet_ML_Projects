@@ -1,4 +1,10 @@
 # Python_Project
-This python project will help you to learn concepts of rendering contents to 
-Html. I followed this as a tutorial from freecodecamp. My goal was to watch the video and 
-finish the code myself. Simple concepts of Html , javascript and css are also 
+
+This repository has projects to improve python coding skills and learn concepts
+that are necessary as a Data Scientist or Machine Learning Engineer. 
+Projects and a brief description
+1. realestatewebsrapper - This python app uses a library called beautifulsoup to scrape
+                         data from a real estate web site (helpful for people trying to buy a house)
+2. recommender - This is a python application that uses concepts of Machine Learning to recommend items 
+                to customer.
+3. todolistapp - This is a basic CRUD application using SQLite
