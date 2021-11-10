@@ -8,3 +8,4 @@ Projects and a brief description
 2. recommender - This is a python application that uses concepts of Machine Learning to recommend items 
                 to customer.
 3. todolistapp - This is a basic CRUD application using SQLite
+4. imageclassification - This python application uses concepts of Machine Learning  to classify images
