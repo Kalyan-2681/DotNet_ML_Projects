@@ -1,4 +1,4 @@
-# Python_Project
+Python based Machine Learning projects
 
 This repository has projects to improve coding skills and learn concepts
 that helps tasks of a Data Scientist or Machine Learning Engineer. 
