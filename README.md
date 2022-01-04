@@ -10,4 +10,4 @@ Projects and a brief description
                 to customer.
 3. todolistapp - This is a basic CRUD application using SQLite
 4. imageclassification - This python application uses concepts of Machine Learning  to classify images
-5. wafer_detection_circle_CI - This project utilizes DevOps CI/ CD pipeline, Docker.
+5. wafer_circleci-main - This project utilizes DevOps CI/ CD pipeline, Docker.
