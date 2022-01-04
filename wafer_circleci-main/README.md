@@ -94,25 +94,6 @@ workflows:
 ```
 
 
-## initialize git repo
-
-```
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/Avnish327030/wafer_circleci.git
-git push -u origin main
-```
-
-## create a account at circle ci
-
-<a href="https://circleci.com/login/">Circle CI</a>
-
-## setup your project 
-
-<a href="https://app.circleci.com/projects/github/Avnish327030/setup/"> Setup project </a>
-
 ## Select project setting in CircleCI and below environment variable
 
 >DOCKERHUB_USER
@@ -120,5 +101,4 @@ git push -u origin main
 >HEROKU_API_KEY
 >HEROKU_APP_NAME
 >HEROKU_EMAIL_ADDRESS
-
 >DOCKER_IMAGE_NAME=<wafercircle3270303>
