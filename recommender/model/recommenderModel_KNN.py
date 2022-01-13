@@ -40,10 +40,34 @@ class RecommenderModel:
         dbclient.close()
         return df
 
-    def predictKNN(pivoted_data):
+    def prepareData(self):
+
+        product_review_df = pd.DataFrame(list(self.getDatafromDB("Product_Review")))
+        product_review_df.drop(['_id'], axis = 1, inplace = True)
+        
+
+        order_df = pd.DataFrame(list(self.getDatafromDB("Order")))
+        order_df.drop(['_id'], axis = 1, inplace = True)
+
+        order_item_df = pd.DataFrame(list(self.getDatafromDB("Order_Item")))
+        order_item_df.drop(['_id'], axis = 1, inplace = True)
+
+        order_order_item = order_df.merge(order_item_df,on='order_id')
+        p_data = pd.merge(order_order_item, product_review_df,on=['product_id','customer_id','order_id'], how='left')
+        test = p_data.drop_duplicates(subset = ['customer_id','product_id'], keep = 'first')
+        test[['order_id','customer_id','product_id','ratings']].head()
+        pivoted_df = test.pivot(index='product_id', columns='customer_id',values='ratings').fillna(0)
+
+        return pivoted_df
+        
+
+    def predictKNN(self):
+
+        pivoted_data = self.prepareData()
         
         svd = TruncatedSVD(n_components=200)
         latent_matrix = svd.fit_transform(pivoted_data)
+
         model_knn = NearestNeighbors(metric = 'cosine', algorithm = 'brute')
         model_knn.fit(pivoted_data) 
 
