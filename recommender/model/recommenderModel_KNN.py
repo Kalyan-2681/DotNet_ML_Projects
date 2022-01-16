@@ -42,20 +42,30 @@ class RecommenderModel:
 
     def prepareData(self):
 
+        # getting the product review details from MongoDB
         product_review_df = pd.DataFrame(list(self.getDatafromDB("Product_Review")))
         product_review_df.drop(['_id'], axis = 1, inplace = True)
         
-
+        # getting the order details from MongoDB
         order_df = pd.DataFrame(list(self.getDatafromDB("Order")))
         order_df.drop(['_id'], axis = 1, inplace = True)
 
+        # getting the order items from MongoDB
         order_item_df = pd.DataFrame(list(self.getDatafromDB("Order_Item")))
         order_item_df.drop(['_id'], axis = 1, inplace = True)
 
+        # merging order and order items tables 
         order_order_item = order_df.merge(order_item_df,on='order_id')
+        
+        # merging order_order_item dataframe with product_review_df dataframe
         p_data = pd.merge(order_order_item, product_review_df,on=['product_id','customer_id','order_id'], how='left')
+        
+        # preparing test data, removing duplicates
         test = p_data.drop_duplicates(subset = ['customer_id','product_id'], keep = 'first')
-        test[['order_id','customer_id','product_id','ratings']].head()
+        
+        #test[['order_id','customer_id','product_id','ratings']].head()
+        
+        # this data set is our matrix on which we will apply dimensionality reduction
         pivoted_df = test.pivot(index='product_id', columns='customer_id',values='ratings').fillna(0)
 
         return pivoted_df
