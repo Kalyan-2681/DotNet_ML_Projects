@@ -7,14 +7,21 @@ import pandas as pd
 app = Flask(__name__)  # initialising the flask app with the name 'app'
 
 
-# route with allowed methods as POST and GET
+ 
 
 @app.route('/', methods=['POST', 'GET'])
+def search():
+    return render_template('index.html')
+
+
+
+# route with allowed methods as POST and GET
+
+@app.route('/search', methods=['POST', 'GET'])
 def index():    
     if request.method == 'POST':
         try:
-            searchString = request.form['content'].replace(" ", "") # obtaining the search string entered in the form 
-            #mydict = {"Product":"productresult", "Name":"Nameresult", "Rating":"ratingResult", "CommentHead":"commentHeadResult", "Comment":"custCommentResult"} # saving that detail to a dictionary            
+            searchString = request.form['content'].replace(" ", "") # obtaining the search string entered in the form            
             mydict = {} # saving that detail to a dictionary            
             reviews = []
             comments = ['searchString1','name1','rating1','commentHead1', 'custComment1'] # Dataframe 

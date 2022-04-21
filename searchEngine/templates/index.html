@@ -11,8 +11,12 @@
     <h1 style="text-align: center">Search</h1>
 
     <div class="form">
-        <form action="/" method="POST">
-            <input type="text" name="content" id="content">
+        <form action="/search" method="POST">
+            <input type="text" name="content" id="content" placeholder="content"><br><br>
+            <input type="number" class="isbn" name="isbn" id="isbn" placeholder="isbn"><br><br>
+            <input type="text" name="title" id="title" placeholder="title"><br><br>
+            <input type="text" name="author" id="author" placeholder="author"><br><br>
+            <input type="number" name="year" id="year" placeholder="year"><br><br>            
             <input type="submit" value="Search">
         </form>
     </div>
